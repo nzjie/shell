@@ -13,3 +13,7 @@ if dirEmpty "/home/ajie/shell/test"; then
 else
     echo '不为空'
 fi
+
+if isPortUse $v;then
+    echo '占用'
+fi

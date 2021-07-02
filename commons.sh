@@ -32,3 +32,15 @@ dirEmpty() {
         return 0
     fi
 }
+
+#判断端口是否被占用,需要sudo权限
+isPortUse(){
+    if strIsEmpty $1;then
+        return 1
+    fi
+    p=`sudo lsof -i:$1 |grep -v "PID" | awk '{print $2}' | awk  'NR==1'`
+    if strIsEmpty $p;then
+        return 1 #空的，没有被占用
+    fi
+    return 0
+}
