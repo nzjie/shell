@@ -3,7 +3,20 @@
 #  version  v1
 #  author niezhenjie
 
-
+strEqual(){
+	if [ $1 = $2 ];then
+		return 0
+	else
+		return 1
+	fi
+}
+strNotEqual(){
+	if [  $1 != $2 ];then
+		return 0
+	else
+		return 1
+	fi
+}
 #判断字符串是否为空,注意，在shell中，0标识true,1标识false
 strIsEmpty(){
 	if [ -z "$1" ];then
